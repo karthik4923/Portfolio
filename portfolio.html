@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karthik | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .social-icons {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.social-icons a {
+  color: #7b4df3;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+    :root {
+      --bg: #ffffff;
+      --text: #111;
+      --highlight: #7b4df3;
+      --muted: #666;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      color: var(--highlight);
+      font-weight: bold;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: var(--highlight);
+    }
+    section {
+      padding: 4em 2em;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home, .about {
+      flex-direction: row;
+      gap: 4em;
+    }
+    .home img, .about img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--highlight);
+    }
+    .content {
+      max-width: 600px;
+    }
+    .content h2 {
+      color: var(--highlight);
+      font-size: 2.5rem;
+      margin-bottom: 0.5em;
+    }
+    .content p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1.5em;
+      padding: 0.75em 1.5em;
+      background-color: var(--highlight);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #5e3fd0;
+    }
+    .stats {
+      margin-top: 2em;
+      display: flex;
+      gap: 2em;
+      color: var(--highlight);
+      font-weight: bold;
+    }
+    .stats div {
+      text-align: center;
+    }
+    .skill-group-title {
+  font-size: 1.5rem;
+  color: #7b4df3;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.skill-item {
+  width: 100px;
+  text-align: center;
+}
+
+.skill-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+.carousel {
+  position: relative;
+  max-width: 700px;
+  margin: 30px auto;
+  overflow: hidden;
+  padding: 2em 3em; /* add horizontal padding to make space for arrows */
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+.project-slide {
+  display: none;
+  text-align: center;
+  animation: fade 0.5s;
+}
+
+.project-slide.active {
+  display: block;
+}
+
+.project-slide img {
+  width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+/* Fix button alignment */
+.carousel .prev, .carousel .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  background-color: #7b4df3;
+  color:white;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius:50px; 
+  z-index: 10;
+}
+
+/* Left & Right button positions */
+.carousel .prev {
+  left: 10px;
+}
+
+.carousel .next {
+  right: 10px;
+}
+#projects{
+  text-align: center;
+  color:#111;
+  font-size: large;
+  font-family: 'Segoe UI', sans-serif;
+
+}
+#skills{
+  text-align: center;
+  color:#111;
+  font-size: large;
+  font-family: 'Segoe UI', sans-serif;
+
+}
+.about{
+   background-color: #f4f4f4;
+}
+@keyframes fade {
+  from { opacity: 0.4 }
+  to { opacity: 1 }
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Karthik</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="home">
+    <div class="social-icons">
+    <a href="https://github.com/karthik4923" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/venkata-sai-karthik-kothapalli-742b4a20b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+    <div class="content">
+      <h2>Hi, I'm Kothapalli Venkata sai Karthik</h2>
+      <p>B.Tech Computer Science Student passionate about development, cloud, and learning new things.</p>
+      <a href="#contact" class="btn">Contact me <i class="fa-solid fa-paper-plane"></i></a>
+    </div>
+    <img src="assets/profile1.JPG" alt="Karthik photo">
+  </section>
+
+  <section id="about" class="about">
+    <img src="assets/profile2.jpg" alt="Karthik photo">
+    <div class="content">
+      <h2>About Me</h2>
+      <p>I’m a undergraduated student from Aditya College of Engineering (CSE). With a CGPA of 8.0, I specialize in full-stack development, Java backend (Spring Boot), and cloud tools like AWS and Terraform and programming.</p>
+      <div class="stats">
+        <div>
+          <h3>08.00+</h3>
+          <p>CGPA</p>
+        </div>
+        <div>
+          <h3>04+</h3>
+          <p>Projects</p>
+        </div>
+        <div>
+          <h3>01+</h3>
+          <p>Months Experience</p>
+        </div>
+      </div>
+      <a href="https://github.com/karthik4923/Resume/blob/main/karthik%20final%20resume.pdf" class="btn" download>Download CV</a>
+    </div>
+  </section>
+  <section id="skills" class="section">
+  <div class="container">
+    <h2>Skills</h2>
+
+    <!-- Using Now -->
+     <h3 class="skill-group-title">Programming Languages:</h3>
+    <div class="skills-grid">
+      <div class="skill-item"><img src="assets/cpp.png" alt=""><p>C++</p></div>
+      <div class="skill-item"><img src="assets/python.png" alt=""><p>Python</p></div>
+      <div class="skill-item"><img src="assets/java.png" alt=""><p>Java</p></div>
+    </div>
+    <h3 class="skill-group-title">Technology:</h3>
+    <div class="skills-grid">
+      <div class="skill-item"><img src="assets/html.png" alt=""><p>HTML5</p></div>
+      <div class="skill-item"><img src="assets/css.png" alt=""><p>CSS3</p></div>
+      <div class="skill-item"><img src="assets/js.png" alt=""><p>JavaScript</p></div>
+      <div class="skill-item"><img src="assets/git.png" alt=""><p>Git</p></div>
+      <div class="skill-item"><img src="assets/mongodb.png" alt=""><p>MongoDB</p></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-item"><img src="assets/mysql.png" alt=""><p>MySQL</p></div>
+      <div class="skill-item"><img src="assets/springboot.svg" alt=""><p>SpringBoot</p></div>
+      <div class="skill-item"><img src="assets/linux.jpeg" alt=""><p>Linux</p></div>
+      <div class="skill-item"><img src="assets/aws.png" alt=""><p>AWS</p></div>
+      <div class="skill-item"><img src="assets/devops.jpeg" alt=""><p>Devops</p></div>
+    </div>
+
+    <!-- Learning -->
+
+    <!-- Other Skills -->
+    
+  </div>
+
+</section>
+
+
+
+<section id="projects" class="section">
+  <div class="container">
+    <h2>Projects</h2>
+    <p>Most recent work</p>
+    
+    <div class="carousel">
+      <button class="prev">&#10094;</button>
+
+      <div class="project-slide active">
+        <img src="assets/project1.jpeg" alt="Project 1" />
+        <h3>Ecommerce Restaurant</h3>
+        <p>Designed and developed a fully responsive frontend for a restaurant’s online ordering system. The interface includes interactive menus, image-rich sections, smooth animations, and a polished user experience tailored for both desktop and mobile users.</p>
+        <p><b>Tech Stack:</b> HTML, CSS, JavaScript</p> 
+        <a href="https://github.com/karthik4923/Eat-out-Resturant" class="btn">GitHub Repo</a>
+        <a href="https://karthik4923.github.io/Eat-out-Resturant/" class="btn">See Live</a>
+      </div>
+
+      <div class="project-slide">
+        <img src="assets/project2.png" alt="Project 2" />
+        <h3>Web Hosting Automation using Terraform & Jenkins</h3>
+        <p>Implemented a CI/CD pipeline to automate infrastructure provisioning and application deployment on AWS. Used Terraform for Infrastructure as Code (IaC) and Jenkins for continuous integration and delivery. Ensured high availability and reliability of deployment workflows.</p><br>
+        <p><b>Tech Stack:</b> GitHub, Git, AWS, Terraform, Jenkins</p>
+        <a href="https://github.com/karthik4923/Infrastructure-with-automation-Terraform" class="btn">GitHub Repo</a>
+      </div>
+      <div class="project-slide">
+        <img src="assets/project3.png" alt="Project 3" />
+        <h3>Today List</h3>
+        <p>Built a modern web application that combines user login functionality with a personalized To-do list manager. Used browser local storage for saving tasks persistently. The design is minimalist, responsive, and ensures a smooth user experience.</p>
+        <p><b>Tech Stack:</b> HTML, CSS, JavaScript</p>
+        <a href="https://github.com/karthik4923/To-do-List" class="btn">GitHub Repo</a>
+        <a href="https://karthik4923.github.io/To-do-List/" class="btn">See Live</a>
+      </div>
+      <div class="project-slide">
+        <img src="assets/project4.png" alt="Project 4" />
+        <h3>Role-based login system</h3>
+        <p>Developed a responsive login interface that supports both Admin and Employee roles. Implemented role-based navigation and a dashboard system using Java backend for session handling and authentication. The design ensures secure access control and a clean user interface for task tracking and updates.</p>
+        <p><b>Tech Stack:</b> HTML, CSS, JavaScript, Java, SpringBoot</p>
+        <a href="https://github.com/karthik4923/Project" class="btn">GitHub Repo</a>
+      </div>
+
+      <button class="next">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding: 4em 2em; background: #f4f4f4;">
+  <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2em;">
+
+    <!-- Contact Info Left -->
+    <div style="flex: 1 1 300px;">
+      <h2 style="color: #111;">Contact Me</h2>
+      <p style="color: #666;">Get in touch</p>
+      <div style="margin-top: 2em;">
+        <p style="margin-bottom: 1em;"><i class="fa-solid fa-phone" style="color: #7b4df3;"></i> <strong>Phone:</strong> 9704047888</p>
+        <p style="margin-bottom: 1em;"><i class="fa-solid fa-envelope" style="color: #7b4df3;"></i> <strong>Email:</strong> Kothapallikarthik10@gmail.com</p>
+        <p><i class="fa-solid fa-location-dot" style="color: #7b4df3;"></i> <strong>Location:</strong> Andhra Pradesh, India</p>
+      </div>
+    </div>
+
+    <!-- Contact Form Right -->
+    <div style="flex: 1 1 400px;">
+      <form id="contact-form" style="display: flex; flex-direction: column; gap: 1em;">
+        <input type="text" placeholder="Your Name" required style="padding: 0.8em; border-radius: 6px; border: 1px solid #ccc;" />
+        <input type="email" placeholder="Your Email" required style="padding: 0.8em; border-radius: 6px; border: 1px solid #ccc;" />
+        <textarea rows="5" placeholder="Your Message" required style="padding: 0.8em; border-radius: 6px; border: 1px solid #ccc;"></textarea>
+        <button type="submit" class="btn" style="background-color: #7b4df3; color: white; padding: 0.75em; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+          Send Message <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+<footer style="background-color: #7b4df3; color: white; padding: 2em 1em; text-align: center;">
+  <h2 style="margin-bottom: 0.3em;">Karthik</h2>
+  <p>Computer Science Engineering Student</p>
+  <div style="margin-top: 1.5em;">
+    <a href="#skills" style="color: white; margin: 0 1em; text-decoration: none;">Skills</a>
+    <a href="#projects" style="color: white; margin: 0 1em; text-decoration: none;">Portfolio</a>
+    <a href="#contact" style="color: white; margin: 0 1em; text-decoration: none;">Contact-Me</a>
+  </div>
+  <p style="margin-top: 2em; font-size: 0.9rem;">© Karthik. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Thank you! Your message has been sent.");
+  });
+  const slides = document.querySelectorAll('.project-slide');
+let currentIndex = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.display = i === index ? 'block' : 'none';
+  });
+}
+
+document.querySelector('.next').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(currentIndex);
+});
+
+// Auto-slide every 5 seconds
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}, 5000);
+
+  /*const slides = document.querySelectorAll('.project-slide');
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+  }
+
+  document.querySelector('.next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  document.querySelector('.prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  // Auto Slide every 5 seconds
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }, 5000);*/
+</script>
+
+
+</body>
+</html>
